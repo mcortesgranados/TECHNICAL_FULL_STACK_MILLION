@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Explicación Técnica: CommentsController</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f9f9f9;
+      padding: 20px;
+      line-height: 1.6;
+    }
+    .card {
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      padding: 20px;
+      margin-bottom: 20px;
+    }
+    h2 {
+      color: #333;
+    }
+    .emoji {
+      font-size: 1.3em;
+      margin-right: 6px;
+    }
+    code {
+      background-color: #f4f4f4;
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card">
+    <h2>\TECHNICAL_FULL_STACK_MILLION\DOT_NET\POC\POC_001_HelloWorldREST\POC_001_HelloWorldREST\Controllers\CommentsController.cs</h2>
+    <h2><a href="https://github.com/mcortesgranados/TECHNICAL_FULL_STACK_MILLION/commit/0344bf06902f43026681cd1b27e4643648d76b31" target="_blank">ENLACE GITHUB</a></h2>
+    <h2><span class="emoji">🔌</span>Imports y Dependencias</h2>
+    <ul>
+      <li><code>using Microsoft.AspNetCore.Mvc;</code> <span class="emoji">🌐</span> Framework para servicios web RESTful</li>
+      <li><code>using MongoDB.Driver;</code> <span class="emoji">🧬</span> Cliente oficial de MongoDB para .NET</li>
+      <li><code>using POC_001_HelloWorldREST.Models;</code> <span class="emoji">🧱</span> Modelos de datos, incluyendo <code>Comment</code></li>
+      <li><code>using POC_001_HelloWorldREST.Services;</code> <span class="emoji">🛠️</span> Servicios como <code>MongoDbService</code></li>
+      <li><code>using System;</code> <span class="emoji">⚙️</span> Tipos base de .NET (excepciones, fechas, etc.)</li>
+      <li><code>using System.Collections.Generic;</code> <span class="emoji">📚</span> Soporte para listas genéricas</li>
+      <li><code>using System.Threading.Tasks;</code> <span class="emoji">⏱️</span> Programación asincrónica con <code>Task</code></li>
+    </ul>
+</div>
+
+  <div class="card">
+    <h2><span class="emoji">🧭</span>Controlador: <code>CommentsController</code></h2>
+    <p>Es un controlador API que maneja solicitudes HTTP en la ruta base <code>api/comments</code>. Permite obtener los primeros 20 comentarios desde MongoDB.</p>
+  </div>
+
+  <div class="card">
+    <h2><span class="emoji">📥</span>Inyección de Dependencias</h2>
+    <p>El constructor recibe una instancia de <code>MongoDbService</code> mediante inyección de dependencias (DI), facilitando pruebas, mantenimiento y separación de responsabilidades.</p>
+  </div>
+
+  <div class="card">
+    <h2><span class="emoji">📡</span>Endpoint HTTP GET</h2>
+    <p>El método <code>GetFirst20Comments()</code> responde a solicitudes GET, devuelve una lista de objetos <code>Comment</code> obtenida desde la base de datos:</p>
+    <ul>
+      <li><span class="emoji">✅</span> <strong>HTTP 200 OK</strong> con la lista si la operación es exitosa</li>
+      <li><span class="emoji">❗</span> <strong>HTTP 500</strong> con mensaje contextual si ocurre una excepción</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2><span class="emoji">🔐</span>Manejo de Excepciones</h2>
+    <p>El bloque <code>try-catch</code> distingue entre errores de MongoDB y errores inesperados:</p>
+    <ul>
+      <li><code>MongoException</code> o <code>TimeoutException</code>: Retorna un error personalizado indicando problemas con la base de datos.</li>
+      <li>Otros errores: Mensaje de error genérico, pero con detalles técnicos en <code>error</code>.</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2><span class="emoji">🧠</span>Aplicación de Principios SOLID</h2>
+    <ul>
+      <li><strong>SRP</strong> (Responsabilidad Única) <span class="emoji">✔️</span>: El controlador solo gestiona solicitudes HTTP relacionadas con comentarios.</li>
+      <li><strong>O</strong> (Abierto/Cerrado) <span class="emoji">➕</span>: Fácil de extender con nuevos endpoints sin modificar los existentes.</li>
+      <li><strong>D</strong> (Inversión de Dependencias) <span class="emoji">🔁</span>: Usa <code>MongoDbService</code> como dependencia externa inyectada.</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2><span class="emoji">🔎</span>Resumen</h2>
+    <p><code>CommentsController</code> es un ejemplo bien estructurado de controlador RESTful en ASP.NET Core que sigue buenas prácticas de diseño y arquitectura limpia. Está orientado a servicios asincrónicos y a la separación clara entre la lógica de presentación (API) y de persistencia (servicio).</p>
+  </div>
+
+  <footer style="text-align:center; margin-top: 40px; color: #777;">
+    📅 Generado el 2025-05-01
+  </footer>
+
+</body>
+</html>

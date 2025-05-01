@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crear un Cluster en MongoDB Atlas - Paso a Paso</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f9fafb;
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+        }
+        header {
+            background-color: #4e73df;
+            color: white;
+            padding: 30px 0;
+            text-align: center;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            font-size: 2.5rem;
+            letter-spacing: 1px;
+            font-weight: 700;
+        }
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            max-width: 1200px;
+        }
+        .step {
+            background-color: #fff;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .step:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+        .step h2 {
+            font-size: 1.8rem;
+            color: #4e73df;
+            margin-bottom: 15px;
+        }
+        .step p {
+            font-size: 1rem;
+            color: #555;
+        }
+        .step img {
+            width: 100%;
+            border-radius: 8px;
+            margin-top: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .table-container {
+            margin-top: 40px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+        table th, table td {
+            padding: 15px;
+            text-align: center;
+            font-size: 1rem;
+        }
+        table th {
+            background-color: #4e73df;
+            color: white;
+            font-weight: bold;
+        }
+        table td {
+            background-color: #f9fafb;
+            color: #555;
+        }
+        .emoticon {
+            font-size: 1.5rem;
+        }
+        .cta-btn {
+            display: inline-block;
+            background-color: #4e73df;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            text-transform: uppercase;
+            margin-top: 15px;
+            transition: background-color 0.3s ease;
+        }
+        .cta-btn:hover {
+            background-color: #3e5ab9;
+        }
+        footer {
+            text-align: center;
+            font-size: 0.9rem;
+            color: #aaa;
+            margin-top: 40px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Crear un Cluster en MongoDB Atlas 🌐</h1>
+    </header>
+
+    <div class="container">
+        <div class="step">
+            <h2>Paso 1: Crear una Cuenta en MongoDB Atlas</h2>
+            <p>Dirígete a <a href="https://www.mongodb.com/cloud/atlas" target="_blank" class="cta-btn">MongoDB Atlas</a> y regístrate para obtener una cuenta. 📝</p>
+            <p>Una vez hayas iniciado sesión, podrás crear tu primer cluster. ¡Es muy sencillo! 🎉</p>
+        </div>
+
+        <div class="step">
+            <h2>Paso 2: Crear un Cluster</h2>
+            <p>Haz clic en el botón "Build a Cluster". Te pedirá elegir el proveedor de la nube y la región donde deseas alojar tu cluster. Para comenzar, selecciona las opciones gratuitas. 🌍</p>
+            <img src="https://www.mongodb.com/docs/atlas/images/atlas-console-create-cluster.png" alt="Crear MongoDB Atlas Cluster">
+        </div>
+
+        <div class="step">
+            <h2>Paso 3: Configurar el Cluster</h2>
+            <p>Ajusta la configuración de tu cluster. Elige el cluster gratuito M0, que es ideal para pruebas y aprendizaje. 🎉</p>
+        </div>
+
+        <div class="step">
+            <h2>Paso 4: Conectar con Tu Cluster</h2>
+            <p>Una vez que tu cluster esté listo, haz clic en el botón "Connect". Puedes elegir conectarte usando el MongoDB Shell o utilizar otro lenguaje de programación. 🔌</p>
+        </div>
+
+        <div class="step">
+            <h2>Paso 5: Añadir Usuarios a la Base de Datos</h2>
+            <p>Ve a la sección "Database Access" y crea un usuario con una contraseña segura para acceder a tu cluster. Asegúrate de guardar estos datos en un lugar seguro. 🛡️</p>
+        </div>
+
+        <div class="table-container">
+            <h2>MongoDB Atlas vs MongoDB Tradicional</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Característica</th>
+                        <th>MongoDB Atlas 🌐</th>
+                        <th>MongoDB Tradicional 🖥️</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Alojamiento</td>
+                        <td>Basado en la nube, totalmente gestionado</td>
+                        <td>Autohospedado o proveedor de nube de terceros</td>
+                    </tr>
+                    <tr>
+                        <td>Mantenimiento</td>
+                        <td>Copias de seguridad, actualizaciones y escalabilidad automáticas</td>
+                        <td>Copias de seguridad, actualizaciones y escalabilidad manual</td>
+                    </tr>
+                    <tr>
+                        <td>Costo</td>
+                        <td>Disponible en una capa gratuita, pago por uso</td>
+                        <td>Gratis, pero requiere costos de hardware</td>
+                    </tr>
+                    <tr>
+                        <td>Seguridad</td>
+                        <td>Seguridad incorporada, controles de acceso y cifrado</td>
+                        <td>Requiere configuración manual de seguridad</td>
+                    </tr>
+                    <tr>
+                        <td>Escalabilidad</td>
+                        <td>Escalado horizontal automático</td>
+                        <td>Requiere intervención manual para escalar</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="step">
+            <h2>Paso 6: ¡Felicidades! 🎉</h2>
+            <p>¡Tu cluster de MongoDB Atlas está listo! Ahora puedes comenzar a desarrollar tu aplicación y aprovechar la potencia de una base de datos gestionada. 💻✨</p>
+        </div>
+    </div>
+
+    <footer>
+        <p>¿Necesitas ayuda? Visita la <a href="https://www.mongodb.com/docs/atlas" target="_blank">documentación de MongoDB Atlas</a> para obtener más guías detalladas y tutoriales. 📚</p>
+    </footer>
+</body>
+</html>

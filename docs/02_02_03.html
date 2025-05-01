@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Explicación Técnica: MongoDbService</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f9f9f9;
+      padding: 20px;
+      line-height: 1.6;
+    }
+    .card {
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      padding: 20px;
+      margin-bottom: 20px;
+    }
+    h2 {
+      color: #333;
+    }
+    .emoji {
+      font-size: 1.3em;
+      margin-right: 6px;
+    }
+    code {
+      background-color: #f4f4f4;
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card">
+    <h2><span class="emoji">🛠️</span>Clase <code>MongoDbService</code></h2>
+    <p>Servicio responsable de gestionar la comunicación con MongoDB 📦. Se conecta a la base de datos, obtiene la colección <code>comments</code> y expone un método para obtener los primeros 20 comentarios.</p>
+    <p>\TECHNICAL_FULL_STACK_MILLION\DOT_NET\POC\POC_001_HelloWorldREST\POC_001_HelloWorldREST\Services\MongoDBService.cs</p>
+    <p><a href="https://github.com/mcortesgranados/TECHNICAL_FULL_STACK_MILLION/commit/8d59d6e3353fd8d1fd148871489adb928712d32d" target="_blank">ENLACE GITHUB</a></p>
+  </div>
+
+  <div class="card">
+    <h2><span class="emoji">🔍</span>Responsabilidades</h2>
+    <ul>
+      <li><span class="emoji">📥</span>Conectar con MongoDB usando <code>MongoClient</code></li>
+      <li><span class="emoji">📑</span>Seleccionar la base de datos y la colección <code>comments</code></li>
+      <li><span class="emoji">📄</span>Exponer un método <code>GetFirst20CommentsAsync()</code> para obtener los primeros 20 comentarios</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2><span class="emoji">📐</span>Principios SOLID Aplicados</h2>
+    <ul>
+      <li><strong>SRP</strong> (Responsabilidad Única) <span class="emoji">✅</span>: Esta clase solo maneja interacciones con la base de datos.</li>
+      <li><strong>D</strong> (Inversión de Dependencias) <span class="emoji">🔁</span>: Utiliza <code>IOptions&lt;MongoDbSettings&gt;</code> para inyectar la configuración.</li>
+      <li><strong>L</strong> (Sustitución de Liskov) <span class="emoji">🔄</span>: El método <code>GetFirst20CommentsAsync</code> puede ser sobrescrito o extendido sin romper el contrato.</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2><span class="emoji">⚙️</span>Método: <code>GetFirst20CommentsAsync()</code></h2>
+    <p>Este método realiza una consulta asíncrona sobre la colección <code>comments</code> y devuelve los primeros 20 elementos. Está protegido contra errores comunes como:</p>
+    <ul>
+      <li><span class="emoji">💥</span><code>MongoException</code>: Errores generales en MongoDB</li>
+      <li><span class="emoji">⏱️</span><code>TimeoutException</code>: Tiempo de espera excedido</li>
+      <li><span class="emoji">❗</span><code>Exception</code>: Otros errores no controlados</li>
+    </ul>
+    <p>Devuelve: <code>Task&lt;List&lt;Comment&gt;&gt;</code></p>
+  </div>
+
+  <div class="card">
+    <h2><span class="emoji">🧠</span>Resumen Técnico</h2>
+    <p>La clase <code>MongoDbService</code> actúa como puente entre la lógica de negocio y la base de datos MongoDB, manteniendo las buenas prácticas de diseño orientado a objetos gracias a SOLID 🧱. Ofrece un punto centralizado para consultar los comentarios sin acoplamiento excesivo con la base de datos.</p>
+  </div>
+
+  <footer style="text-align:center; margin-top: 40px; color: #777;">
+    📅 Generado el 2025-05-01
+  </footer>
+
+</body>
+</html>

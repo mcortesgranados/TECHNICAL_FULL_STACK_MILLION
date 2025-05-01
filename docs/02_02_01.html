@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Explicación de MongoDbSettings</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #333;
+        }
+        .explanation {
+            margin-top: 20px;
+        }
+        .explanation h2 {
+            color: #555;
+        }
+        .code {
+            background-color: #f1f1f1;
+            padding: 10px;
+            border-radius: 5px;
+            font-family: "Courier New", Courier, monospace;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+        .emoji {
+            font-size: 1.5em;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Explicación de la clase <code>MongoDbSettings</code> <span class="emoji">💻</span></h1>
+    <p><a href="https://github.com/mcortesgranados/TECHNICAL_FULL_STACK_MILLION/commit/e3ba945ac8b7e32fdb018e3d138818964ca5bbb5" target="_blank"><strong>ENLACE GITHUB</strong></a></p>
+    <p data-start="3848" data-end="3931">Se agregaron <strong data-start="3861" data-end="3875">emoticonos</strong> para hacer el texto más visual y dinámico. Por ejemplo:</p>
+    <ul data-start="3934" data-end="4185">
+      <li data-start="3934" data-end="3989">
+        <p data-start="3936" data-end="3989">💻 para indicar que el tema trata sobre programación.</p>
+      </li>
+      <li data-start="3992" data-end="4026">
+        <p data-start="3994" data-end="4026">📜 para explicar la parte breve.</p>
+      </li>
+      <li data-start="4029" data-end="4064">
+        <p data-start="4031" data-end="4064">🔍 para la explicación detallada.</p>
+      </li>
+      <li data-start="4067" data-end="4131">
+        <p data-start="4069" data-end="4131">🔒, 🔗, 📦 y ⚙️ para resaltar conceptos técnicos y principios.</p>
+      </li>
+      <li data-start="4134" data-end="4182">
+        <p data-start="4136" data-end="4182">✔️ para enfatizar el principio SOLID aplicado.</p>
+      </li>
+    </ul>
+    <p>&nbsp;</p>
+    <!-- Explicación Corta -->
+    <div class="explanation">
+        <h2>Explicación Corta <span class="emoji">📜</span></h2>
+        <p>
+            La clase <code>MongoDbSettings</code> guarda los datos necesarios para conectarse a una base de datos MongoDB (como la cadena de conexión y el nombre de la base de datos). Se configura desde <code>appsettings.json</code> y sigue el principio SOLID de tener una única responsabilidad. <span class="emoji">🔒</span>
+        </p>
+    </div>
+
+    <!-- Explicación Detallada -->
+    <div class="explanation">
+        <h2>Explicación Detallada <span class="emoji">🔍</span></h2>
+        <p>
+            La clase <code>MongoDbSettings</code> tiene como propósito representar la configuración para conectarse a una base de datos MongoDB desde una aplicación .NET. <span class="emoji">🖥️</span>
+        </p>
+        <p>
+            Esta clase se usa normalmente para mapear la sección correspondiente en el archivo <code>appsettings.json</code>. A continuación se muestra un ejemplo de cómo se configuraría en el archivo:
+        </p>
+
+        <div class="code">
+            {
+                "MongoDbSettings": {
+                    "ConnectionString": "mongodb://localhost:27017",
+                    "DatabaseName": "MiBaseDeDatos"
+                }
+            }
+        </div>
+
+      <p>
+            La clase contiene las siguientes propiedades:
+      </p>
+        <ul>
+          <li><code>ConnectionString</code>: Almacena la URL de conexión al servidor MongoDB. <span class="emoji">🔗</span></li>
+            <li><code>DatabaseName</code>: Almacena el nombre de la base de datos a usar. <span class="emoji">📦</span></li>
+        </ul>
+
+        <h3>Principio SOLID aplicado <span class="emoji">⚙️</span></h3>
+        <p><strong>SRP (Single Responsibility Principle)</strong>: La clase tiene una única responsabilidad, que es contener la configuración relacionada con MongoDB. No maneja conexiones ni lógica de negocio, solo datos de configuración. <span class="emoji">✔️</span></p>
+
+        <p>Este es el código de la clase en C#:</p>
+
+        <div class="code">
+            namespace POC_001_HelloWorldREST
+            {
+                public class MongoDbSettings
+                {
+                    public string ConnectionString { get; set; }
+                    public string DatabaseName { get; set; }
+                }
+            }
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

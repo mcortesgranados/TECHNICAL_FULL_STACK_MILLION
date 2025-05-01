@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explicación de la clase <code>Comment</code></title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #333;
+        }
+        .explanation {
+            margin-top: 20px;
+        }
+        .explanation h2 {
+            color: #555;
+        }
+        .code {
+            background-color: #f1f1f1;
+            padding: 10px;
+            border-radius: 5px;
+            font-family: "Courier New", Courier, monospace;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+        .emoji {
+            font-size: 1.5em;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Explicación de la clase <code>Comment</code> <span class="emoji">💬</span></h1>
+    <p><a href="https://github.com/mcortesgranados/TECHNICAL_FULL_STACK_MILLION/commit/3ae5d7ec5fb130880f7dec7735f46d14eeec44ad" target="_blank"><strong>ENLACE GITHUB</strong></a></p>
+    <!-- Explicación Corta -->
+    <div class="explanation">
+        <h2>Explicación Corta <span class="emoji">📜</span></h2>
+        <p>
+            La clase <code>Comment</code> representa un comentario de un usuario sobre una película. Se modelan propiedades como el ID, nombre del usuario, correo, el ID de la película, el contenido del comentario y la fecha. 
+            La clase sigue el principio de Responsabilidad Única (SRP) de SOLID, ya que su único propósito es almacenar los datos relacionados con el comentario. <span class="emoji">🎬</span>
+        </p>
+    </div>
+
+    <!-- Explicación Detallada -->
+    <div class="explanation">
+        <h2>Explicación Detallada <span class="emoji">🔍</span></h2>
+        <p>
+            La clase <code>Comment</code> está diseñada para representar un comentario hecho por un usuario sobre una película. Esta clase es parte del modelo de datos y está pensada para ser utilizada en una base de datos MongoDB. 
+            Cada instancia de esta clase corresponde a un comentario específico realizado por un usuario en relación a una película en particular. 
+        </p>
+        
+        <p>La clase incluye las siguientes propiedades:</p>
+        <ul>
+            <li><strong><code>Id</code></strong>: Un identificador único para el comentario. Este campo es utilizado como la clave primaria en MongoDB. <span class="emoji">🔑</span></li>
+            <li><strong><code>Name</code></strong>: El nombre del usuario que realiza el comentario. Especifica quién ha escrito el comentario. <span class="emoji">🧑‍💻</span></li>
+            <li><strong><code>Email</code></strong>: El correo electrónico del usuario que hace el comentario. Este campo es útil para asociar el comentario a una persona de forma más precisa. <span class="emoji">📧</span></li>
+            <li><strong><code>MovieId</code></strong>: El identificador de la película a la que pertenece el comentario. Este campo actúa como una referencia (clave foránea) hacia la entidad de la película. <span class="emoji">🎥</span></li>
+            <li><strong><code>Text</code></strong>: El contenido textual del comentario. Representa lo que el usuario escribió sobre la película. <span class="emoji">📝</span></li>
+            <li><strong><code>Date</code></strong>: La fecha y hora en la que se creó el comentario. Es un dato temporal que se captura cuando el comentario es agregado. <span class="emoji">📅</span></li>
+        </ul>
+
+        <h3>Principio SOLID aplicado <span class="emoji">⚙️</span></h3>
+        <p><strong>SRP (Single Responsibility Principle)</strong>: La clase cumple con el principio de Responsabilidad Única (SRP), ya que su única responsabilidad es modelar los datos del comentario. No maneja la lógica de negocio ni la interacción con la base de datos; solo contiene los datos que se necesitan para describir el comentario de un usuario. <span class="emoji">✔️</span></p>
+
+        <p>A continuación se muestra el código de la clase en C#:</p>
+
+        <div class="code">
+            namespace POC_001_HelloWorldREST.Models
+            {
+                using MongoDB.Bson;
+                using MongoDB.Bson.Serialization.Attributes;
+                using System;
+
+                public class Comment
+                {
+                    [BsonId]
+                    public ObjectId Id { get; set; }
+
+                    [BsonElement("name")]
+                    public string Name { get; set; }
+
+                    [BsonElement("email")]
+                    public string Email { get; set; }
+
+                    [BsonElement("movie_id")]
+                    public ObjectId MovieId { get; set; }
+
+                    [BsonElement("text")]
+                    public string Text { get; set; }
+
+                    [BsonElement("date")]
+                    public DateTime Date { get; set; }
+                }
+            }
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
