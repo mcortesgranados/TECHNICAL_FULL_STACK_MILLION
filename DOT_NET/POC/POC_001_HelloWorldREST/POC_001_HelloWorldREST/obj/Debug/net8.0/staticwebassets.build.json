@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "eS2C+tNsYQW6sMiA37jj7brB8POlA+6bGmqcx9+S/5Q=",
+  "Source": "POC_001_HelloWorldREST",
+  "BasePath": "_content/POC_001_HelloWorldREST",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

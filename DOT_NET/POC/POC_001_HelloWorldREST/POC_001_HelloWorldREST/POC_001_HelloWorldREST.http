@@ -1,0 +1,6 @@
+@POC_001_HelloWorldREST_HostAddress = http://localhost:5218
+
+GET {{POC_001_HelloWorldREST_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
