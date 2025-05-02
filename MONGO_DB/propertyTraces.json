@@ -1,0 +1,8 @@
+{
+  "_id": { "$oid": "66320aa8c13e5c6cfd000030" },
+  "propertyId": { "$oid": "66320aa8c13e5c6cfd000010" },
+  "dateSale": { "$date": "2022-01-01T00:00:00Z" },
+  "name": "First Sale",
+  "value": 950000,
+  "tax": 5000
+}

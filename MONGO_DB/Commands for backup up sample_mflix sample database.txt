@@ -1,0 +1,9 @@
+mongoexport --uri="mongodb+srv://manuelacortesgranados:FTfyvNDV9t0JjqnS@cluster0.q2ck97d.mongodb.net/sample_mflix?retryWrites=true&w=majority&appName=Cluster0" --collection=movies --out=movies.json --jsonArray
+
+mongoexport --uri="mongodb+srv://manuelacortesgranados:FTfyvNDV9t0JjqnS@cluster0.q2ck97d.mongodb.net/sample_mflix?retryWrites=true&w=majority&appName=Cluster0" --collection=embedded_movies --out=embedded_movies.json --jsonArray
+
+mongoexport --uri="mongodb+srv://manuelacortesgranados:FTfyvNDV9t0JjqnS@cluster0.q2ck97d.mongodb.net/sample_mflix?retryWrites=true&w=majority&appName=Cluster0" --collection=sessions --out=sessions.json --jsonArray
+
+mongoexport --uri="mongodb+srv://manuelacortesgranados:FTfyvNDV9t0JjqnS@cluster0.q2ck97d.mongodb.net/sample_mflix?retryWrites=true&w=majority&appName=Cluster0" --collection=theaters --out=theaters.json --jsonArray
+
+mongoexport --uri="mongodb+srv://manuelacortesgranados:FTfyvNDV9t0JjqnS@cluster0.q2ck97d.mongodb.net/sample_mflix?retryWrites=true&w=majority&appName=Cluster0" --collection=users --out=users.json --jsonArray

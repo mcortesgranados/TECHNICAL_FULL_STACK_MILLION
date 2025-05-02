@@ -1,0 +1,6 @@
+{
+  "_id": { "$oid": "66320aa8c13e5c6cfd000020" },
+  "propertyId": { "$oid": "66320aa8c13e5c6cfd000010" },
+  "file": "https://example.com/image1.jpg",
+  "enabled": true
+}
