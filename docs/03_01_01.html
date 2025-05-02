@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Integridad Referencial en MongoDB</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f9;
+      margin: 0;
+      padding: 0;
+      color: #333;
+    }
+    header {
+      background-color: #007bff;
+      color: white;
+      padding: 1rem;
+      text-align: center;
+    }
+    section {
+      padding: 2rem;
+    }
+    h2 {
+      color: #007bff;
+    }
+    .question {
+      background-color: #e9ecef;
+      padding: 1rem;
+      border-radius: 5px;
+      margin-bottom: 1rem;
+    }
+    .answer {
+      background-color: #f8f9fa;
+      padding: 1rem;
+      border-radius: 5px;
+      margin-bottom: 2rem;
+    }
+    pre {
+      background-color: #343a40;
+      color: white;
+      padding: 1rem;
+      border-radius: 5px;
+      overflow-x: auto;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Guía Completa sobre Integridad Referencial en MongoDB</h1>
+  </header>
+  <section>
+    <h2>Teoría sobre Integridad Referencial en MongoDB</h2>
+    <div class="answer">
+      <p>La <strong>integridad referencial</strong> en bases de datos asegura que las relaciones entre los datos sean coherentes. MongoDB, al ser una base de datos NoSQL orientada a documentos, no tiene un sistema de claves foráneas como las bases de datos relacionales, por lo que la integridad referencial debe ser gestionada explícitamente.</p>
+      <p>En bases de datos tradicionales como MySQL, la integridad referencial se asegura a través de claves foráneas, que son restricciones que indican que una columna en una tabla debe coincidir con el valor de una clave primaria en otra tabla. Sin embargo, MongoDB no impone este tipo de reglas de forma predeterminada.</p>
+      <p>Para mantener la integridad referencial en MongoDB, puedes utilizar algunas estrategias como la <strong>referencia manual</strong> entre documentos o aplicar validaciones adicionales a nivel de aplicación.</p>
+    </div>
+
+    <div class="question">
+      <h3>¿Cómo asegurar la integridad referencial en MongoDB?</h3>
+    </div>
+    <div class="answer">
+      <p>En MongoDB, puedes mantener la integridad referencial mediante las siguientes estrategias:</p>
+      <ul>
+        <li><strong>Referencias manuales</strong>: Utilizar campos que almacenen el identificador único de un documento de otra colección.</li>
+        <li><strong>Subdocumentos</strong>: Incluir los datos de otra entidad directamente dentro de un documento como subdocumento.</li>
+        <li><strong>Validación en la aplicación</strong>: Implementar la lógica de validación para asegurarse de que las referencias sean correctas antes de realizar las inserciones o actualizaciones en la base de datos.</li>
+      </ul>
+    </div>
+
+    <div class="question">
+      <h3>¿Qué es una referencia manual?</h3>
+    </div>
+    <div class="answer">
+      <p>Una <strong>referencia manual</strong> es cuando un documento en una colección contiene un campo que guarda el identificador (_id) de un documento de otra colección. Esto no asegura automáticamente que el documento referenciado exista, por lo que se debe gestionar en la aplicación para garantizar la coherencia.</p>
+    </div>
+
+    <div class="question">
+      <h3>Ejemplo de Referencias Manuales</h3>
+    </div>
+    <div class="answer">
+      <p>Supongamos que tenemos dos colecciones: <code>propietarios</code> y <code>propiedades</code>. En este ejemplo, cada propiedad tiene un campo <code>ownerId</code> que hace referencia al identificador de un propietario en la colección <code>propietarios</code>.</p>
+      <pre>
+{
+  "_id": { "$oid": "66320aa8c13e5c6cfd000001" },
+  "name": "John Doe",
+  "address": "123 Main St",
+  "photo": "https://example.com/photo.jpg",
+  "birthday": { "$date": "1990-01-01T00:00:00Z" }
+}
+      </pre>
+      <p>Ejemplo de un documento en la colección <code>propiedades</code> que hace referencia al propietario:</p>
+      <pre>
+{
+  "_id": { "$oid": "66320aa8c13e5c6cfd000010" },
+  "name": "Luxury Villa",
+  "address": "456 Ocean Drive",
+  "price": 1000000,
+  "codeInternal": "PROP001",
+  "year": 2020,
+  "ownerId": { "$oid": "66320aa8c13e5c6cfd000001" }
+}
+      </pre>
+      <p>En este caso, <code>ownerId</code> es una referencia manual que debe coincidir con el <code>_id</code> de un documento en la colección <code>propietarios</code>.</p>
+    </div>
+
+    <div class="question">
+      <h3>¿Qué pasa si el propietario se elimina?</h3>
+    </div>
+    <div class="answer">
+      <p>Si el propietario se elimina de la colección <code>propietarios</code>, las propiedades que lo referencian en <code>ownerId</code> quedarán con una referencia rota. Para evitar esto, deberías:</p>
+      <ul>
+        <li>Eliminar las propiedades asociadas antes de eliminar al propietario (lo que se conoce como una eliminación en cascada).</li>
+        <li>Aplicar validaciones en la aplicación para verificar si la referencia sigue siendo válida antes de realizar la eliminación.</li>
+      </ul>
+    </div>
+
+    <div class="question">
+      <h3>¿Qué son los subdocumentos?</h3>
+    </div>
+    <div class="answer">
+      <p>En lugar de almacenar una referencia a otro documento, puedes incluir los datos de otro documento directamente dentro del documento principal. Esta estrategia se utiliza cuando los datos referenciados no cambian frecuentemente y se necesita acceso rápido a toda la información.</p>
+    </div>
+
+    <div class="question">
+      <h3>Ejemplo de Subdocumentos</h3>
+    </div>
+    <div class="answer">
+      <p>En este ejemplo, en lugar de almacenar solo el identificador del propietario, los datos del propietario se incluyen directamente como un subdocumento dentro de la propiedad:</p>
+      <pre>
+{
+  "_id": { "$oid": "66320aa8c13e5c6cfd000010" },
+  "name": "Luxury Villa",
+  "address": "456 Ocean Drive",
+  "price": 1000000,
+  "codeInternal": "PROP001",
+  "year": 2020,
+  "owner": {
+    "name": "John Doe",
+    "address": "123 Main St",
+    "photo": "https://example.com/photo.jpg",
+    "birthday": { "$date": "1990-01-01T00:00:00Z" }
+  }
+}
+      </pre>
+      <p>En este caso, toda la información del propietario se encuentra directamente dentro del documento de la propiedad como un subdocumento.</p>
+    </div>
+  </section>
+</body>
+</html>

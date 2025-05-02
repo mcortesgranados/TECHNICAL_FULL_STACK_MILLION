@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Documentación de Arquitectura Limpia Fullstack</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 40px; line-height: 1.6; background-color: #f9f9f9; color: #333; }
+    h1, h2, h3 { color: #2c3e50; }
+    pre { background-color: #f0f0f0; padding: 10px; border-radius: 5px; overflow-x: auto; }
+    code { font-family: Consolas, monospace; }
+    section { margin-bottom: 40px; }
+    ul { margin-left: 20px; }
+    .tag { background-color: #444; color: #fff; padding: 2px 6px; border-radius: 3px; font-size: 0.85em; }
+    .explanation { background-color: #eef; padding: 10px; margin-top: 5px; border-left: 4px solid #2980b9; }
+  </style>
+</head>
+<body>
+
+  <h1>🧩 Documentación de Arquitectura Limpia - Fullstack .NET + MongoDB + React</h1>
+
+  <section>
+    <h2>🔧 Backend (.NET 8/9 + MongoDB)</h2>
+
+    <h3>Estructura de Carpetas</h3>
+    <pre><code>/RealEstateSolution
+  /RealEstate.API
+  /RealEstate.Application
+  /RealEstate.Domain
+  /RealEstate.Infrastructure
+  /RealEstate.Tests</code></pre>
+
+    <ul>
+      <li>
+        <strong>/RealEstate.API</strong>
+        <div class="explanation">
+          Contiene los controladores y middlewares. Se encarga de recibir las solicitudes HTTP y delegar la lógica a la capa de aplicación. Separar esta capa asegura que el cambio de framework o protocolo (HTTP → gRPC, por ejemplo) no afecte la lógica de negocio.
+        </div>
+      </li>
+      <li>
+        <strong>/RealEstate.Application</strong>
+        <div class="explanation">
+          Aloja los <span class="tag">Use Cases</span> o servicios de aplicación que contienen la lógica de negocio. Esto permite centralizar las reglas de negocio en una capa que no depende del framework o detalles de infraestructura.
+        </div>
+      </li>
+      <li>
+        <strong>/RealEstate.Domain</strong>
+        <div class="explanation">
+          Define las entidades y DTOs. Esta capa representa el "corazón" del sistema y puede ser compartida por todas las demás capas. Al mantenerla independiente, garantizamos una mayor reutilización y claridad en el modelo de negocio.
+        </div>
+      </li>
+      <li>
+        <strong>/RealEstate.Infrastructure</strong>
+        <div class="explanation">
+          Aquí se implementan los accesos a MongoDB y otros recursos externos. Separar esta capa permite cambiar la base de datos (por ejemplo, SQL Server) sin tocar la lógica de negocio ni los controladores.
+        </div>
+      </li>
+      <li>
+        <strong>/RealEstate.Tests</strong>
+        <div class="explanation">
+          Incluye pruebas unitarias usando NUnit. Tenerlo separado fomenta pruebas más organizadas, facilita CI/CD, y mejora el mantenimiento del código.
+        </div>
+      </li>
+    </ul>
+
+    <h3>Decisiones Técnicas Clave</h3>
+    <ul>
+      <li>Se usa <span class="tag">AutoMapper</span> para transformar entidades ↔ DTOs: evita lógica de mapeo repetitiva.</li>
+      <li>Filtros con <code>Builders&lt;Property&gt;.Filter</code> en MongoDB: permite construir consultas dinámicas de forma segura.</li>
+      <li>Inyección de dependencias para servicios: mejora testabilidad y desacopla implementaciones.</li>
+      <li>Manejo centralizado de errores: evita duplicación de try/catch y permite mejores logs.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>🌐 Frontend (ReactJS o Next.js)</h2>
+
+    <h3>Estructura de Carpetas</h3>
+    <pre><code>/src
+  /api
+  /components
+  /pages
+  /services
+  /hooks
+  /types
+  /tests</code></pre>
+
+    <ul>
+      <li>
+        <strong>/api</strong>
+        <div class="explanation">
+          Encapsula las llamadas al backend. Mantenerlas centralizadas permite reusar lógica, manejar errores globales y cambiar de Axios a Fetch sin tocar múltiples archivos.
+        </div>
+      </li>
+      <li>
+        <strong>/components</strong>
+        <div class="explanation">
+          Contiene componentes reutilizables como <code>PropertyCard</code> o <code>FilterForm</code>. Se aplica el principio de reutilización y composición de UI.
+        </div>
+      </li>
+      <li>
+        <strong>/pages</strong>
+        <div class="explanation">
+          Para Next.js, cada archivo representa una ruta. Esto facilita la navegación y división del sistema en vistas lógicas.
+        </div>
+      </li>
+      <li>
+        <strong>/services</strong>
+        <div class="explanation">
+          Contiene lógica como filtros o paginación. Separar lógica de negocio del componente facilita mantenimiento y testing.
+        </div>
+      </li>
+      <li>
+        <strong>/hooks</strong>
+        <div class="explanation">
+          Hooks como <code>useProperties</code> permiten reutilizar lógica de estado o efectos en múltiples componentes.
+        </div>
+      </li>
+      <li>
+        <strong>/types</strong>
+        <div class="explanation">
+          Interfaces TypeScript para definir la forma de los datos. Ayuda al tipado estricto y la documentación del modelo.
+        </div>
+      </li>
+      <li>
+        <strong>/tests</strong>
+        <div class="explanation">
+          Organiza pruebas unitarias y de integración. Permite pruebas automáticas sobre filtros, renderizado y llamadas a API.
+        </div>
+      </li>
+    </ul>
+
+    <h3>Buenas Prácticas Aplicadas</h3>
+    <ul>
+      <li>Se usan componentes controlados para formularios.</li>
+      <li>Estado local con <span class="tag">useState</span> y global (si es necesario) con <span class="tag">Context</span>.</li>
+      <li>Diseño responsive con <span class="tag">Tailwind</span> o CSS Grid.</li>
+      <li>Test de componentes clave con <span class="tag">Jest</span> y <span class="tag">React Testing Library</span>.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>📄 Documentación Incluida (README.md)</h2>
+
+    <ul>
+      <li>
+        <strong>Instalación</strong>
+        <div class="explanation">
+          Instrucciones paso a paso para levantar tanto el backend como el frontend. Se indica uso de <code>dotnet run</code> y <code>npm run dev</code>.
+        </div>
+      </li>
+      <li>
+        <strong>Variables de entorno</strong>
+        <div class="explanation">
+          Se incluye un archivo <code>.env.example</code> para configurar el string de conexión a MongoDB y otros parámetros.
+        </div>
+      </li>
+      <li>
+        <strong>Endpoints documentados</strong>
+        <div class="explanation">
+          Se lista cada endpoint de la API, su método HTTP, parámetros y respuesta esperada. Ejemplo: <code>GET /api/properties?name=Casa</code>.
+        </div>
+      </li>
+      <li>
+        <strong>Backup de base de datos</strong>
+        <div class="explanation">
+          Se adjunta un respaldo de MongoDB (.bson o .json) para facilitar la carga inicial de datos.
+        </div>
+      </li>
+      <li>
+        <strong>Capturas de pantalla</strong>
+        <div class="explanation">
+          Se agregan capturas del frontend navegando, filtrando y viendo detalles. Esto facilita la evaluación visual del resultado.
+        </div>
+      </li>
+    </ul>
+  </section>
+
+</body>
+</html>
