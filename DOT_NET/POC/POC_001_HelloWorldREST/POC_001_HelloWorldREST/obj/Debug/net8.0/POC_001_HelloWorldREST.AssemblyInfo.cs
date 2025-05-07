@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("POC_001_HelloWorldREST")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+8d59d6e3353fd8d1fd148871489adb928712d32d")]
 [assembly: System.Reflection.AssemblyProductAttribute("POC_001_HelloWorldREST")]
 [assembly: System.Reflection.AssemblyTitleAttribute("POC_001_HelloWorldREST")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
