@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("UtilityToCreateMassiveSampleData")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+886d4dadf87c93888b8e3f2a2167b035c2cd7d61")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+fb9d8d3d40f79c9e6bae2afb18cd38ef03493e36")]
 [assembly: System.Reflection.AssemblyProductAttribute("UtilityToCreateMassiveSampleData")]
 [assembly: System.Reflection.AssemblyTitleAttribute("UtilityToCreateMassiveSampleData")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
