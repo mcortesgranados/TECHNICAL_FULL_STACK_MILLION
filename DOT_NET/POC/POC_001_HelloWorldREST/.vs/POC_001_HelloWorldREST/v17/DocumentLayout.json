@@ -1,12 +1,37 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "K:\\TECHNICAL_FULL_STACK_MILLION\\DOT_NET\\POC\\POC_001_HelloWorldREST\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{7F0F829C-612A-4896-B66B-A310E0E92920}|POC_001_HelloWorldREST\\POC_001_HelloWorldREST.csproj|k:\\technical_full_stack_million\\dot_net\\poc\\poc_001_helloworldrest\\poc_001_helloworldrest\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{7F0F829C-612A-4896-B66B-A310E0E92920}|POC_001_HelloWorldREST\\POC_001_HelloWorldREST.csproj|solutionrelative:poc_001_helloworldrest\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
       "VerticalTabListWidth": 256,
-      "DocumentGroups": []
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "K:\\TECHNICAL_FULL_STACK_MILLION\\DOT_NET\\POC\\POC_001_HelloWorldREST\\POC_001_HelloWorldREST\\appsettings.json",
+              "RelativeDocumentMoniker": "POC_001_HelloWorldREST\\appsettings.json",
+              "ToolTip": "K:\\TECHNICAL_FULL_STACK_MILLION\\DOT_NET\\POC\\POC_001_HelloWorldREST\\POC_001_HelloWorldREST\\appsettings.json",
+              "RelativeToolTip": "POC_001_HelloWorldREST\\appsettings.json",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAqAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-05-07T12:02:35.033Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
     }
   ]
 }
